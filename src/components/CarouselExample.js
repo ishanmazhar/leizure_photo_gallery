@@ -55,14 +55,6 @@ const CarouselExample = (props) => {
                             onChange={handleChange}
                         />
                         <br />
-                        <input 
-                            name="password"
-                            placeholder="Password"
-                            className="form-control"
-                            value={values.password}
-                            onChange={handleChange}
-                        />
-                        <br />
                         <button type="submit" className="btn btn-success">Post Comment</button>
                     </form>
                 </div>)
