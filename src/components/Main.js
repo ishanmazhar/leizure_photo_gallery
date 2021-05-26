@@ -1,13 +1,43 @@
 import React, { Component } from 'react';
+import { Switch, Route, Redirect, Link } from 'react-router-dom';
 
-class extends Component {
-    render() {
-        return (
-            <div>
-                Main
-            </div>
-        )
+import Header from './Header';
+import DisplayCard from './DisplayCard'; 
+import Footer from './Footer';
+import CarouselExample from './CarouselExample';
+
+import { connect } from 'react-redux'; 
+
+const mapStateToProps = state => {
+    return {
+        ratargul: state.places.ratargul,
+        nilgiri: state.places.nilgiri, 
     }
 }
 
-export default Main;
+
+class Main extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return(
+            <div>
+                <Header />
+                <Route exact path="/home"> 
+                    <div>
+                        <DisplayCard place={this.props.ratargul.filter((site) => site.featured)} path="ratargul" />
+                        <DisplayCard place={this.props.nilgiri.filter((site) => site.featured)} path="nilgiri" />
+                    </div>
+                </Route>
+                <Route path="/ratargul" component={() => <CarouselExample place={this.props.ratargul} />} />
+                <Route path="/nilgiri" component={() => <CarouselExample place={this.props.nilgiri} />} />
+                <Redirect to="/home" />
+                <Footer />
+            </div>
+        );
+    }
+}
+
+export default connect(mapStateToProps)(Main);

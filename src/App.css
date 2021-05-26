@@ -1,38 +1,78 @@
-.App {
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(65, 56, 11);
+}
+
+.navbar-dark {
+  background-color: rgb(31, 26, 4);
+}
+
+.footer {
+  padding: 40px 0px 20px 0px;
+  background-color: rgb(31, 26, 4);
+  height:min-content;
+}
+
+.nav-link {
+  color: white;
+  cursor: pointer;
+}
+header {
+  background-color: black;
+  height: 100px;
+}
+.cover-image {
+  /* background-image: url("images/royal-tulip.jpg");
+  height:1000px; */
+  width:100%;
+  
+}
+.welcome {
+  padding:20px;
+  margin-top:20px;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 15px 50px;
+  background: #fde7ab;
+  
+}
+.welcome-title {
+  margin-bottom: 30px;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.justify {
+  text-align: justify;
+}
+
+/* .container {
+  margin:0;
+  padding: 0;
+} */
+
+.center {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  color:white;
+}
+a:link {
+  text-decoration: none;
+}
+a:hover {
+  color:burlywood;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
