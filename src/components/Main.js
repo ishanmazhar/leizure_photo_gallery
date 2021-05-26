@@ -26,9 +26,15 @@ class Main extends Component {
             <div>
                 <Header />
                 <Route exact path="/home"> 
-                    <div>
-                        <DisplayCard place={this.props.ratargul.filter((site) => site.featured)} path="ratargul" />
-                        <DisplayCard place={this.props.nilgiri.filter((site) => site.featured)} path="nilgiri" />
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-12 col-md m-1">
+                                <DisplayCard place={this.props.ratargul.filter((site) => site.featured)} path="ratargul" /> 
+                            </div>
+                            <div className="col-12 col-md m-1">
+                                <DisplayCard place={this.props.nilgiri.filter((site) => site.featured)} path="nilgiri" />
+                            </div>
+                        </div>
                     </div>
                 </Route>
                 <Route path="/ratargul" component={() => <CarouselExample place={this.props.ratargul} />} />

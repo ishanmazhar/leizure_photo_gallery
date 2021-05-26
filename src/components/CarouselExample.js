@@ -1,5 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap'; 
+import { Card, Button, CardTitle, CardText, CardImg } from 'reactstrap';
+import { Formik } from 'formik'; 
 
 const CarouselExample = (props) => {
     console.log(props.place); 
@@ -18,13 +20,81 @@ const CarouselExample = (props) => {
             </Carousel.Item>
         )
     });
+
+    const CommentForm = (props) => {
+        return (
+            <Card body className="display-card">
+            <CardTitle tag="h5">Add a comment</CardTitle>
+            <Formik 
+                initialValues={
+                    {
+                        email: "",
+                        password: "",
+                        passwordConfirm: "",
+                    }
+                }
+                onSubmit={
+                    (values) => {
+                        console.log("Values: ", values);
+                    }
+                }
+            >
+
+            {({ values, handleChange, handleSubmit, errors })=> (
+                <div style={{
+                    border: "1px grey solid",
+                    padding: "15px",
+                    borderRadius: "7px", 
+                }}>
+                    <form onSubmit={handleSubmit}>
+                        <textarea style={{height:"120px"}}
+                            name="email"
+                            placeholder="Your Comment Here"
+                            className="form-control"
+                            value={values.email}
+                            onChange={handleChange}
+                        />
+                        <br />
+                        <input 
+                            name="password"
+                            placeholder="Password"
+                            className="form-control"
+                            value={values.password}
+                            onChange={handleChange}
+                        />
+                        <br />
+                        <button type="submit" className="btn btn-success">Post Comment</button>
+                    </form>
+                </div>)
+            }
+            </Formik>
+            </Card>
+        )
+    }
+
+    const RenderComment = (props) => {
+        return (
+            <div>
+                <Card body className="display-card">
+                    <CardTitle tag="h5">{props.place[0].name}</CardTitle>
+                    <CardText>{props.place[0].description}</CardText>
+                </Card>
+                <CommentForm />
+            </div>
+        )
+    }
         
     return (
         <div className="container">
-            <div className="d-flex justify-content-center">
-            <Carousel>
-                {places}
-            </Carousel>
+            <div className="row">
+                <div className="col-12 col-md-7 m-1">
+                    <Carousel>
+                        {places}
+                    </Carousel>
+                </div>
+                <div className="col-12 col-md m-1">
+                    <RenderComment place={props.place}/>
+                </div>
             </div>
         </div>
     )

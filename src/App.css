@@ -30,6 +30,11 @@ header {
   width:100%;
   
 }
+
+.display-card {
+  background-color: rgb(82, 70, 16); 
+  color:wheat;
+}
 .welcome {
   padding:20px;
   margin-top:20px;
