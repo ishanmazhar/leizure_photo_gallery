@@ -7,9 +7,35 @@ const INITIAL_STATE = {
         ratargul: RATARGUL,
         nilgiri: NILGIRI, 
     },
+    comments: [],
+    commentLoading: true,
+    commentErr: false,
+
 }
 
 export const reducer = (state=INITIAL_STATE, action) => {
-    // const places = [...state.places]; 
-    return state; 
+    switch(action.type) {
+        case actionTypes.LOAD_COMMENTS:
+            let comments = [];
+            for (let key in action.payload) {
+                comments.push({                    
+                    ...action.payload[key],
+                    id: key,
+                })
+            }
+            return {
+                ...state,
+                comments: comments,
+                commentLoading: false,
+            }
+        case actionTypes.COMMENTS_LOAD_FAILED:
+            return {
+                ...state,
+                commentErr: true, 
+                commentLoading: false, 
+            }
+
+        default:
+            return state; 
+    }
 }

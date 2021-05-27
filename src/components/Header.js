@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Jumbotron, Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem,
-    Button, Modal, ModalHeader, ModalBody,
-    Form, FormGroup, Input, Label} from 'reactstrap'; 
+import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem } from 'reactstrap'; 
 import { NavLink } from 'react-router-dom';
 // import LoginModal from './LoginModal'; 
 

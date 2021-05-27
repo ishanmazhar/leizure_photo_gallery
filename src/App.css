@@ -4,6 +4,7 @@ html {
 
 body {
   background-color: rgb(65, 56, 11);
+  box-sizing: border-box;
 }
 
 .navbar-dark {
@@ -24,16 +25,19 @@ header {
   background-color: black;
   height: 100px;
 }
-.cover-image {
-  /* background-image: url("images/royal-tulip.jpg");
-  height:1000px; */
-  width:100%;
-  
-}
 
 .display-card {
   background-color: rgb(82, 70, 16); 
   color:wheat;
+}
+
+.carousel-caption-card {
+  background-color: rgb(82, 70, 16); 
+  color:wheat;
+  border:5px solid rgb(31, 26, 4);
+  margin-top: 2px;
+  margin-bottom: 2px;
+  text-align: center; 
 }
 .welcome {
   padding:20px;
@@ -45,7 +49,6 @@ header {
   margin-left: auto;
   border-radius: 15px 50px;
   background: #fde7ab;
-  
 }
 .welcome-title {
   margin-bottom: 30px;
