@@ -10,7 +10,7 @@ const DisplayCard = (props) => {
                     <CardImg width="100%" src={process.env.PUBLIC_URL + site.image} alt={site.name}/>
                     <CardTitle tag="h5">{site.name}</CardTitle>
                     <CardText>{site.description}</CardText>
-                    <Button><Link to={`/${props.path}`}>Open Gallery</Link></Button>
+                    <Button className="btn btn-success"><Link to={`/${props.path}`}>Open Gallery</Link></Button>
                 </Card>
             </div>
         );
