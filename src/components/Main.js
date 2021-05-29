@@ -4,7 +4,7 @@ import { Switch, Route, Redirect, Link } from 'react-router-dom';
 import Header from './Header';
 import DisplayCard from './DisplayCard'; 
 import Footer from './Footer';
-import CarouselExample from './CarouselExample';
+import PlaceDetails from './PlaceDetails';
 
 import { connect } from 'react-redux'; 
 
@@ -37,8 +37,8 @@ class Main extends Component {
                         </div>
                     </div>
                 </Route>
-                <Route path="/ratargul" component={() => <CarouselExample place={this.props.ratargul} />} />
-                <Route path="/nilgiri" component={() => <CarouselExample place={this.props.nilgiri} />} />
+                <Route path="/ratargul" component={() => <PlaceDetails place={this.props.ratargul} dbPath="ratargul" />} />
+                <Route path="/nilgiri" component={() => <PlaceDetails place={this.props.nilgiri} dbPath="nilgiri" />} />
                 <Redirect to="/home" />
                 <Footer />
             </div>

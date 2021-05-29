@@ -1,10 +1,9 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap'; 
 import { Card, Button, CardTitle, CardText, CardImg } from 'reactstrap';
-import Comments from './Comments';
+import CommentForm from './CommentForm';
 
-const CarouselExample = (props) => {
-    console.log(props.place); 
+const PlaceDetails = (props) => {
     const places = props.place.map((place) => {
         return (
             <Carousel.Item key={place.id}>
@@ -34,11 +33,11 @@ const CarouselExample = (props) => {
                     </Card>
                 </div>
                 <div className="col-12 col-md m-1">
-                    <Comments place={props.place}/>
+                    <CommentForm place={props.place} dbPath={props.dbPath} />
                 </div>
             </div>
         </div>
     )
 }
 
-export default CarouselExample; 
+export default PlaceDetails; 

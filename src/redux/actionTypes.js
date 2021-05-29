@@ -1,5 +1,5 @@
 export const POST_COMMENT = "POST_COMMENT";
-export const ADD_COMMENTS = "ADD_COMMENTS";
+export const ADD_COMMENTS = "ADD_COMMENT";
 export const LOAD_COMMENTS = "LOAD_COMMENTS";
 export const COMMENTS_LOAD_FAILED = "COMMENTS_LOAD_FAILED"; 
 

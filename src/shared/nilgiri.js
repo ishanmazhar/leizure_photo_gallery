@@ -3,7 +3,7 @@ export const NILGIRI = [
         id: 0,
         name: "Nilgiri Mountains",
         image: "/assets/images/nilgiri-1.jpg",
-        featured: true,
+        featured: false,
         description: "Astounding hill area and the highest tourist destination in Bangladesh"
     },
 
@@ -11,7 +11,7 @@ export const NILGIRI = [
         id: 1,
         name: "Nilgiri Mountains",
         image: "/assets/images/nilgiri-2.jpg",
-        featured: false,
+        featured: true,
         description: "Astounding hill area and the highest tourist destination in Bangladesh"
     },
 

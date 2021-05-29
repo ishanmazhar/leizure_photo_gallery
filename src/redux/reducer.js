@@ -8,14 +8,16 @@ const INITIAL_STATE = {
         nilgiri: NILGIRI, 
     },
     comments: [],
-    commentLoading: true,
-    commentErr: false,
-
+    commentsLoading: true,
+    commentsErr: false, 
 }
 
 export const reducer = (state=INITIAL_STATE, action) => {
     switch(action.type) {
         case actionTypes.LOAD_COMMENTS:
+            // for (let key in action.payload) {
+            //     console.log(action.payload[key]); 
+            // }
             let comments = [];
             for (let key in action.payload) {
                 comments.push({                    
@@ -26,15 +28,21 @@ export const reducer = (state=INITIAL_STATE, action) => {
             return {
                 ...state,
                 comments: comments,
-                commentLoading: false,
+                commentsLoading: false,
             }
         case actionTypes.COMMENTS_LOAD_FAILED:
             return {
                 ...state,
                 commentErr: true, 
-                commentLoading: false, 
+                commentsLoading: false, 
             }
-
+        case actionTypes.ADD_COMMENTS:
+            let comment = action.payload;
+            console.log(comment);
+            return {
+                ...state,
+                comments: state.comments.concat(comment), 
+            }
         default:
             return state; 
     }

@@ -3,8 +3,8 @@ export const RATARGUL = [
         id: 0,
         name: "Ratargul Swamp Forest",
         image: "/assets/images/ratargul-1.jpg",
-        featured: true,
-        description: "Beautiful swamp forest in Bangladesh"
+        featured: false,
+        description: "Admirably beautiful swamp forest in Sylhet district in riverine Bangladesh"
     },
 
     {
@@ -12,14 +12,14 @@ export const RATARGUL = [
         name: "Ratargul Swamp Forest",
         image: "/assets/images/ratargul-2.jpg",
         featured: false,
-        description: "Beautiful swamp forest in Bangladesh"
+        description: "Admirably beautiful swamp forest in Sylhet district in riverine Bangladesh"
     },
 
     {
         id: 2,
         name: "Ratargul Swamp Forest",
         image: "/assets/images/ratargul-3.jpg",
-        featured: false,
-        description: "Beautiful swamp forest in Bangladesh"
+        featured: true,
+        description: "Admirably beautiful swamp forest in Sylhet district in riverine Bangladesh"
     },
 ]
