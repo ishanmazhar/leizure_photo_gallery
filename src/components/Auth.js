@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
+import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
-// import { connect } from 'react-redux'; 
-// import { auth } from '../../redux/authActionCreators';
+import { connect } from 'react-redux'; 
+import { auth } from '../redux/authActionCreators';
 
 // import Spinner from '../Spinner/Spinner'; 
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         auth: (email, password, mode) => dispatch(auth(email, password, mode))
-//     }
-// }
+const mapDispatchToProps = dispatch => {
+    return {
+        auth: (email, password, mode) => dispatch(auth(email, password, mode))
+    }
+}
 
 // const mapStateToProps = state => {
 //     return {
@@ -27,6 +28,12 @@ class Auth extends Component {
 
     switchModeHandler = () => {
         this.setState({ mode: this.state.mode === "Sign Up" ? "Login" : "Sign Up"})
+    }
+
+    toggleModal = () => {
+        this.setState({
+            isModalOpen: !this.state.isModalOpen 
+        })
     }
 
     render() {
@@ -134,10 +141,22 @@ class Auth extends Component {
         return (
             <div>
                 {/* {err}  */}
-                {form}
+                <Button outline onClick={this.toggleModal}>
+                    <span className="fa fa-sign-in fa-lg"></span> Login
+                </Button>
+                <Modal 
+                    isOpen={this.state.isModalOpen} 
+                    toggle={this.toggleModal}>
+                    <ModalHeader 
+                        toggle={this.toggleModal} 
+                        style={{backgroundColor: "rgb(59, 50, 8)", color: "wheat"}}>Login / Sign Up</ModalHeader>
+                    <ModalBody style={{backgroundColor: "rgb(82, 70, 16)"}}>
+                        {form} 
+                    </ModalBody>
+                </Modal>
             </div>
         )
     }
 }
 
-export default Auth; 
+export default connect(null, mapDispatchToProps)(Auth); 
