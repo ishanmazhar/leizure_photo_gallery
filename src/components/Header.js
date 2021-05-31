@@ -3,6 +3,7 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem,
      Alert } from 'reactstrap'; 
 import { NavLink } from 'react-router-dom';
 import Auth from './Auth'; 
+import Logout from './Logout'; 
 
 import { connect } from 'react-redux';
 
@@ -30,11 +31,21 @@ class Header extends Component {
     }
 
     render() {
+
+        let logout = null;
+        if (this.props.token !== null)
+            logout = (
+                <NavItem>
+                    <NavLink className="nav-link" to = "/logout">
+                        Logout
+                    </NavLink>
+                </NavItem>
+            )
         let login = null;
         if(this.props.token === null ) {
             login = ( <Auth />)
         } else {
-            login = "Logout"
+            login = null 
         }
         return(
             <React.Fragment> 
@@ -71,6 +82,7 @@ class Header extends Component {
                                 <NavItem>
                                     {login}
                                 </NavItem>
+                                {logout}
                             </Nav>
                          </Collapse>
                     </div>

@@ -1,11 +1,15 @@
 import * as actionTypes from './actionTypes'; 
 import { RATARGUL } from '../shared/ratargul';
 import { NILGIRI } from '../shared/nilgiri';
+import { JAFLONG } from '../shared/jaflong';
+import { BANDARBAN } from '../shared/bandarban'; 
 
 const INITIAL_STATE = {
     places: {
         ratargul: RATARGUL,
-        nilgiri: NILGIRI, 
+        nilgiri: NILGIRI,
+        jaflong: JAFLONG,
+        bandarban: BANDARBAN,  
     },
     comments: [],
     commentsLoading: true,

@@ -4,8 +4,15 @@ import { Formik } from 'formik';
 import axios from 'axios';
 import { connect } from 'react-redux'; 
 import { addComment } from '../redux/actionCreators';
-
+import { Link } from 'react-router-dom'; 
 import Comments from './Comments';
+import Auth from './Auth'; 
+
+const mapStateToProps = state => {
+    return {
+        token: state.token, 
+    }
+}
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -45,13 +52,15 @@ class CommentForm extends Component {
     }
 
     render() {
-        return (
-            <div>
+        let commentCard = null;
+        if (this.props.token === null) {
+            commentCard = (
                 <Card body className="display-card">
-                    <CardTitle tag="h4" style={{paddingLeft:"10px"}}>Comments</CardTitle>
-                    <Comments dbPath={this.props.dbPath}/>
+                    <CardTitle tag="h4" style={{paddingLeft:"10px"}}>Please Login to add a comment</CardTitle>
                 </Card>
-                <br />
+            )
+        } else {
+            commentCard = (
                 <Card body className="display-card">
                     <CardTitle tag="h5">Add a comment</CardTitle>
                     <form>
@@ -77,9 +86,21 @@ class CommentForm extends Component {
                         <Button className="btn btn-success" onClick={this.submitHandler}>Post Comment</Button>
                     </form>
                 </Card>
+            )
+        }
+
+
+        return (
+            <div>
+                <Card body className="display-card">
+                    <CardTitle tag="h4" style={{paddingLeft:"10px"}}>Comments</CardTitle>
+                    <Comments dbPath={this.props.dbPath}/>
+                </Card>
+                <br />
+                {commentCard} 
             </div>
         )
     }
 }
 
-export default connect(null, mapDispatchToProps)(CommentForm); 
+export default connect(mapStateToProps, mapDispatchToProps)(CommentForm); 
