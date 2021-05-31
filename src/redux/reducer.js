@@ -47,6 +47,7 @@ export const reducer = (state=INITIAL_STATE, action) => {
                 ...state,
                 comments: state.comments.concat(comment), 
             }
+        // Auth Cases
         case actionTypes.AUTH_SUCCESS:
             return {
                 ...state,

@@ -8,10 +8,18 @@ import PlaceDetails from './PlaceDetails';
 
 import { connect } from 'react-redux'; 
 
+import { authCheck } from '../redux/authActionCreators';
+
 const mapStateToProps = state => {
     return {
         ratargul: state.places.ratargul,
         nilgiri: state.places.nilgiri, 
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        authCheck: () => dispatch(authCheck())
     }
 }
 
@@ -21,6 +29,9 @@ class Main extends Component {
         super(props);
     }
 
+    componentDidMount() {
+        this.props.authCheck(); 
+    }
     render() {
         return(
             <div>
@@ -46,4 +57,4 @@ class Main extends Component {
     }
 }
 
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

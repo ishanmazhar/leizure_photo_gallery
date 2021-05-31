@@ -4,6 +4,14 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem,
 import { NavLink } from 'react-router-dom';
 import Auth from './Auth'; 
 
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => {
+    return {
+        token: state.token, 
+    }
+}
+
 class Header extends Component {
 
     constructor(props) {
@@ -22,6 +30,12 @@ class Header extends Component {
     }
 
     render() {
+        let login = null;
+        if(this.props.token === null ) {
+            login = ( <Auth />)
+        } else {
+            login = "Logout"
+        }
         return(
             <React.Fragment> 
                 <Navbar dark expand = "md">
@@ -55,7 +69,7 @@ class Header extends Component {
                             </Nav>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                    <Auth />
+                                    {login}
                                 </NavItem>
                             </Nav>
                          </Collapse>
@@ -66,4 +80,4 @@ class Header extends Component {
     }
 }
 
-export default Header
+export default connect(mapStateToProps)(Header); 
