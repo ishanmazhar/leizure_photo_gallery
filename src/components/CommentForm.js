@@ -55,8 +55,8 @@ class CommentForm extends Component {
         let commentCard = null;
         if (this.props.token === null) {
             commentCard = (
-                <Card body className="display-card">
-                    <CardTitle tag="h4" style={{paddingLeft:"10px"}}>Please Login to add a comment</CardTitle>
+                <Card body className="display-card" style={{marginBottom: "20px"}}>
+                    <CardTitle tag="h4" style={{paddingLeft:"5px"}}>Please Login to add a comment</CardTitle>
                 </Card>
             )
         } else {
@@ -69,7 +69,7 @@ class CommentForm extends Component {
                             name="author" 
                             id="author"
                             value={this.state.comments.author}
-                            placeholder="Youre Name Here"
+                            placeholder="Your Name Here"
                             className="form-control"
                             onChange={(e) => this.inputChangeHandler(e)}
                             required />
@@ -78,7 +78,7 @@ class CommentForm extends Component {
                             name="comment" 
                             id="comment"
                             value={this.state.comments.comment}
-                            placeholder="Youre Comment Here"
+                            placeholder="Your Comment Here"
                             className="form-control"
                             onChange={(e) => this.inputChangeHandler(e)}
                             required />
@@ -93,7 +93,7 @@ class CommentForm extends Component {
         return (
             <div>
                 <Card body className="display-card">
-                    <CardTitle tag="h4" style={{paddingLeft:"10px"}}>Comments</CardTitle>
+                    <CardTitle tag="h4" style={{paddingLeft:"5px"}}>Comments</CardTitle>
                     <Comments dbPath={this.props.dbPath}/>
                 </Card>
                 <br />

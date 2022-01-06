@@ -23,7 +23,7 @@ class Comments extends Component {
     } 
     render() {
         console.log(this.props.comments);
-        const comments = this.props.comments.map((comment) => {
+        const comments = this.props.comments.reverse().map((comment) => {
             return (
                 <div key={comment.id}>
                     <Card body className="display-card">

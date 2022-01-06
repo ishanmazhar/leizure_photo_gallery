@@ -24,7 +24,7 @@ const PlaceDetails = (props) => {
         <div className="container">
             <div className="row">
                 <div className="col-12 col-md m-1">
-                    <Carousel>
+                    <Carousel className="carousel">
                         {places}
                     </Carousel>
                     <Card body className="carousel-caption-card">

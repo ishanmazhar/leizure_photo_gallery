@@ -4,7 +4,7 @@ export const JAFLONG = [
         name: "Jaflong",
         image: "/assets/images/jaflong-1.jpg",
         featured: false,
-        description: "Astounding hill area and the highest tourist destination in Bangladesh"
+        description: "Astounding hill area with a beutiful lake and one of the most popular tourist destinations in Bangladesh"
     },
 
     {
@@ -12,7 +12,7 @@ export const JAFLONG = [
         name: "Jaflong",
         image: "/assets/images/jaflong-2.jpg",
         featured: true,
-        description: "Astounding hill area and the highest tourist destination in Bangladesh"
+        description: "Astounding hill area with a beutiful lake and one of the most popular tourist destinations in Bangladesh"
     },
 
     {
@@ -20,6 +20,6 @@ export const JAFLONG = [
         name: "Jaflong", 
         image: "/assets/images/jaflong-3.jpg",
         featured: false,
-        description: "Astounding hill area and the highest tourist destination in Bangladesh"
+        description: "Astounding hill area with a beutiful lake and one of the most popular tourist destinations in Bangladesh"
     },
 ]

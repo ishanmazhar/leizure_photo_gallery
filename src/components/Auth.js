@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
-import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, Alert } from 'reactstrap';
 
 import { connect } from 'react-redux'; 
 import { auth } from '../redux/authActionCreators';
 
-// import Spinner from '../Spinner/Spinner'; 
+import Spinner from '../Spinner/Spinner'; 
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -13,12 +13,12 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         authLoading: state.authLoading,
-//         authFailedMsg: state.authFailedMsg, 
-//     }
-// }
+const mapStateToProps = state => {
+    return {
+        authLoading: state.authLoading,
+        authFailedMsg: state.authFailedMsg, 
+    }
+}
 
 class Auth extends Component {
     state = {
@@ -37,15 +37,19 @@ class Auth extends Component {
     }
 
     render() {
-        // let err = null;
-        // if (this.props.authFailedMsg !== null) {
-        //     err = <Alert color="danger">{this.props.authFailedMsg}</Alert>
-        // }
-        // let form = null;
-        // if (this.props.authLoading) {
-        //     form = <Spinner />
-        // } else {
-            let form = (
+        let err = null;
+        if (this.props.authFailedMsg !== null) {
+            err = <Alert style={{
+                    backgroundColor:"rgb(31, 26, 4)", 
+                    color: "wheat",
+                    textAlign: "center"
+                }}>{this.props.authFailedMsg}</Alert>
+        }
+        let form = null;
+        if (this.props.authLoading) {
+            form = <Spinner />
+        } else {
+            form = (
                 <Formik 
                 initialValues={
                     {
@@ -138,9 +142,9 @@ class Auth extends Component {
                     </div>)}
                 </Formik>
             )
+        }
         return (
             <div>
-                {/* {err}  */}
                 <Button outline onClick={this.toggleModal}>
                     <span className="fa fa-sign-in fa-lg"></span> Login
                 </Button>
@@ -151,6 +155,7 @@ class Auth extends Component {
                         toggle={this.toggleModal} 
                         style={{backgroundColor: "rgb(59, 50, 8)", color: "wheat"}}>Login / Sign Up</ModalHeader>
                     <ModalBody style={{backgroundColor: "rgb(82, 70, 16)"}}>
+                        {err} 
                         {form} 
                     </ModalBody>
                 </Modal>
@@ -159,4 +164,4 @@ class Auth extends Component {
     }
 }
 
-export default connect(null, mapDispatchToProps)(Auth); 
+export default connect(mapStateToProps, mapDispatchToProps)(Auth); 

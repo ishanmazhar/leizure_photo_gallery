@@ -6,6 +6,7 @@ import DisplayCard from './DisplayCard';
 import Footer from './Footer';
 import PlaceDetails from './PlaceDetails';
 import Logout from './Logout'; 
+import Contact from './Contact'; 
 // import Auth from './Auth'; 
 
 import { connect } from 'react-redux'; 
@@ -47,21 +48,24 @@ class Main extends Component {
                                 <DisplayCard place={this.props.jaflong.filter((site) => site.featured)} path="jaflong" /> 
                             </div>
                             <div className="col-12 col-md m-1">
-                                <DisplayCard place={this.props.nilgiri.filter((site) => site.featured)} path="nilgiri" />
+                                <DisplayCard place={this.props.bandarban.filter((site) => site.featured)} path="bandarban" />
                             </div>
+                        </div>
+                        <div className="row">
                             <div className="col-12 col-md m-1">
                                 <DisplayCard place={this.props.ratargul.filter((site) => site.featured)} path="ratargul" /> 
                             </div>
                             <div className="col-12 col-md m-1">
-                                <DisplayCard place={this.props.bandarban.filter((site) => site.featured)} path="bandarban" /> 
+                                <DisplayCard place={this.props.nilgiri.filter((site) => site.featured)} path="nilgiri" />
                             </div>
                         </div>
                     </div>
                 </Route>
                 <Route path="/jaflong" component={() => <PlaceDetails place={this.props.jaflong} dbPath="jaflong" />} />
-                <Route path="/nilgiri" component={() => <PlaceDetails place={this.props.nilgiri} dbPath="nilgiri" />} />
-                <Route path="/ratargul" component={() => <PlaceDetails place={this.props.ratargul} dbPath="ratargul" />} />
                 <Route path="/bandarban" component={() => <PlaceDetails place={this.props.bandarban} dbPath="bandarban" />} /> 
+                <Route path="/ratargul" component={() => <PlaceDetails place={this.props.ratargul} dbPath="ratargul" />} />
+                <Route path="/nilgiri" component={() => <PlaceDetails place={this.props.nilgiri} dbPath="nilgiri" />} />
+                <Route path="/contactus" component={Contact} /> 
                 <Switch>
                     <Route path="/logout" component={Logout} /> 
                     <Redirect to="/home" />

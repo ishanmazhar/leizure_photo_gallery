@@ -4,7 +4,7 @@ export const BANDARBAN = [
         name: "Bandarban",
         image: "/assets/images/bandarban-1.jpg",
         featured: false,
-        description: "Astounding hill area and the highest tourist destination in Bangladesh"
+        description: "Astounding hill area and one of the most popular tourist destinations in Bangladesh"
     },
 
     {
@@ -12,7 +12,7 @@ export const BANDARBAN = [
         name: "Bandarban",
         image: "/assets/images/bandarban-2.jpg",
         featured: true,
-        description: "Astounding hill area and the highest tourist destination in Bangladesh"
+        description: "Astounding hill area and one of the most popular tourist destinations in Bangladesh"
     },
 
     {
@@ -20,6 +20,6 @@ export const BANDARBAN = [
         name: "Bandarban", 
         image: "/assets/images/bandarban-3.jpg",
         featured: false,
-        description: "Astounding hill area and the highest tourist destination in Bangladesh"
+        description: "Astounding hill area and one of the most popular tourist destinations in Bangladesh"
     },
 ]
